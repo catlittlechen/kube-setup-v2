@@ -1,0 +1,43 @@
+---
+kind: List
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Deployment
+  metadata:
+    name: simple-web
+  spec:
+    replicas: 1
+    template:
+      metadata:
+        labels:
+          app: simple-web
+          tier: frontend
+          track: production
+        name: simple-web
+      spec:
+        containers:
+        - name: simple-web
+          image: nginx
+          env:
+          - name: APP_ENV
+            value: production
+          - name: TRACK
+            value: production
+          ports:
+          - containerPort: 80
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      name: simple-web
+      tier: frontend
+      track: production
+    name: simple-web
+  spec:
+    ports:
+    - port: 80
+      targetPort: 80
+    selector:
+      app: simple-web
+    type: LoadBalancer
