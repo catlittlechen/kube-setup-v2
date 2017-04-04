@@ -32,7 +32,7 @@ items:
               cpu: 100m
           env:
             - name: "ELASTICSEARCH_URL"
-              value: "http://elasticsearch-logging:9200"
+              value: "http://100.69.45.208:9200" # fetch service IP from ES Master Service description
             - name: "KIBANA_BASE_URL"
               value: "/api/v1/proxy/namespaces/kube-system/services/kibana-logging"
           ports:
