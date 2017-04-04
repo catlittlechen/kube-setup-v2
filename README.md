@@ -1,6 +1,6 @@
 # Setup a secure K8 cluster
 
----> Decide on a <Cluster Name> which is also its DNS access point like kube8.rockyj.de
+---> Decide on a Cluster Name which is also its DNS access point like kube8.rockyj.de
 
 1. Setup AWS CLI
 
@@ -8,7 +8,7 @@
 
 3. Create VPC using my ansible-script (https://github.com/rocky-jaiswal/ansible-aws-vpc)
 
-4. Check the tags of the subnets and routing tables, it should have KubernetesCluster = <Cluster Name> tag. --> __VERY IMPORTANT__
+4. Check the tags of the subnets and routing tables, it should have KubernetesCluster = Cluster Name tag. --> __VERY IMPORTANT__
 
 5. Create S3 bucket -
 aws s3api create-bucket --bucket k8-state-03april2017-v4 --region eu-central-1 --create-bucket-configuration LocationConstraint=eu-central-1
